@@ -44,7 +44,7 @@ class UserController extends Controller
 	    	$user->password = Hash::make($request->password);
 	    }
 
-	    if(!$user->hasRole($role->name)) {
+	    if($request->role) {
 	    	$user->roles()->detach();
 	    	$user->roles()->attach($request->role);
 	    } 
