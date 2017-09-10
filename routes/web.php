@@ -15,6 +15,8 @@
 Route::get('/', 'HomeController@index');
 Auth::routes();
 
+// Route::get('/topics', 'TopicController@index');
+
 Route::group(['middleware' => 'auth'], function () {
 
 	Route::group(['middleware' => 'auth'], function () {
@@ -25,6 +27,12 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('/users/{id}/update', 'UserController@update')->where('id', '[0-9]+');
 		Route::put('/users/{id}/update', 'UserController@modify')->where('id', '[0-9]+');
 		// Route::post('/users/{id}/delete', 'UserController@delete')->where('id', '[0-9]+');
+		
+		// Route::get('/topics/create', 'TopicController@create');
+		// Route::post('/topics/store', 'TopicController@store');
+		// Route::get('/topics/{id}/edit', 'TopicController@edit')->where('id', '[0-9]+');
+		// Route::put('/topics/{id}/udpate', 'TopicController@udpate')->where('id', '[0-9]+');
+		Route::resource('topics', 'TopicController');
 	});
 
 	// Route::get('/foo/', 'BarController@index');

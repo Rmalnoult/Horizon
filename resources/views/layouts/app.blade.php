@@ -11,8 +11,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ mix('css/all.css') }}" rel="stylesheet">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/all.css') }}" rel="stylesheet">
     @yield('styles')
 </head>
 <body>
@@ -46,6 +46,7 @@
                         <!-- Authentication Links -->
                         @if(Auth::check() && Auth::user()->hasRole('admin'))
                             <li><a href="/users">Users</a></li>
+                            <li><a href="/topics">Topics</a></li>
                         @endif
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>

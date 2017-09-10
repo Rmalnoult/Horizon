@@ -19,3 +19,6 @@
 .capitalize {
 	text-transform: capitalize;
 }
+h2 {
+	margin-bottom: 40px;
+}
