@@ -37,7 +37,7 @@
 					<div class="form-group {{ $errors->has('role') ? 'has-error' : '' }}">
 						{!! Form::label('role', 'Rôle', ['class' => 'col-md-4 control-label']) !!}
 						<div class="col-md-6">
-		                	{!! Form::select('role', $roles, $user->roles()->first ? $user->roles()->first()->id :null, ['class' => 'form-control', 'required']) !!}
+		                	{!! Form::select('role', $roles, $user->roles()->first() ? $user->roles()->first()->id :null, ['class' => 'form-control', 'required']) !!}
 							<small class="text-danger">{{ $errors->first('role') }}</small>
 						</div>
 					</div>
