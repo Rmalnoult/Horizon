@@ -21,6 +21,7 @@ class CreateArticlesTable extends Migration
             $table->string('source');
             $table->string('url');
             $table->string('image');
+            $table->string('type');
             $table->longText('excerpt')->nullable();
             $table->longText('content')->nullable();
             $table->timestamps();

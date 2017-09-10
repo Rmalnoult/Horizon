@@ -11,10 +11,15 @@
 						@foreach($topic->articles as $index => $article)
 							@if($index != 0) <hr> @endif
 							<li class="list-group-item">
-								<div class="col-md-2 cover"></div>
-								<div class="col-md-10">
-									<h4>{{ $article->title }}</h4>
-								</div>
+								<a href="{{ $article->url }}" target="_blank" style="color: inherit;">
+									<div class="row">
+										<div class="col-md-2 cover" style="min-height:100px;background-image: url('{{ $article->image  }}')"></div>
+										<div class="col-md-10">
+											<h4>{{ $article->title }}</h4>
+											<p>{{ $article->excerpt }}</p>
+										</div>
+									</div>
+								</a>
 							</li>
 						@endforeach
 					</ul>

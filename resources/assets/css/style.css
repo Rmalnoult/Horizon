@@ -19,6 +19,11 @@
 .capitalize {
 	text-transform: capitalize;
 }
+.cover {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
 h2 {
 	margin-bottom: 40px;
 }
