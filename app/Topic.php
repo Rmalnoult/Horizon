@@ -12,8 +12,10 @@ class Topic extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'edito', 'published'
+        'title', 'edito', 'published', 'image'
     ];
+
+    protected $visible = ['articles'];
 
     public function articles()
     {

@@ -36,6 +36,7 @@ class GoogleAuthController extends Controller
         try{
             $user = Socialite::driver('google')->stateless()->user();
         } catch (\Exception $e) {
+            dd($e);
             return redirect('/login')->with('status', 'Something went wrong or You have rejected the app!');
         }
 

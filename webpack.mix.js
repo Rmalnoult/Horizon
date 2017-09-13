@@ -13,7 +13,9 @@ let mix = require('laravel-mix');
 
 // bower install
 
-mix.js('resources/assets/js/app.js', 'public/js').version();
+mix.js('resources/assets/js/app.js', 'public/js')
+.js('resources/assets/js/topics.js', 'public/js')
+.version();
 
 mix.sass('resources/assets/sass/app.scss', 'public/css')
 

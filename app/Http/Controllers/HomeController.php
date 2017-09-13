@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -24,7 +24,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $topics = Topic::paginate(25);
-        return view('home')->with('topics', $topics);
+        // $paginatedTopics = Topic::where('published', '=', 1)->paginate(25);
+        $topics = Topic::where('published', '=', 1)->get();
+        // dd($topics->articles->toJson());
+        foreach ($topics as $topic) {
+            $response[] = [
+                'id' => $topic->id,
+                'title' => $topic->title,
+                'image' => $topic->image,
+                'active' => false,
+                'edito' => $topic->edito,
+                'articles' => $topic->articles->toArray(),
+            ];
+        }
+        return view('home')->with('topics', $response);
     }
 }

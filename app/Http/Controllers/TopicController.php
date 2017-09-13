@@ -38,12 +38,14 @@ class TopicController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|unique:topics,title',
+            'image' => 'string',
             'edito' => 'string',
         ]);
 
         $topic = Topic::create([
             'title' => $request->title,
             'edito' => $request->edito,
+            'image' => $request->image,
             'published' => $request->published ? true : false,
         ]);
 
@@ -84,10 +86,12 @@ class TopicController extends Controller
         $this->validate($request, [
             'title' => 'string',
             'edito' => 'string',
+            'image' => 'string',
         ]);
 
         $topic->title = $request->title;
         $topic->edito = $request->edito;
+        $topic->image = $request->image;
         $topic->published = $request->published ? true : false;
 
         $request->articles = json_decode($request->encodedArticles);
@@ -101,9 +105,20 @@ class TopicController extends Controller
                     'url' => $a->url,
                     'image' => $a->image,
                     'excerpt' => $a->excerpt,
+                    'type' => 'e',
                 ]);
+            } else {
+                $article = Article::find($a->id);
+                $article->title = $a->title;
+                $article->source = $a->source;
+                $article->url = $a->url;
+                $article->image = $a->image;
+                $article->excerpt = $a->excerpt;
+                $article->save();
             }
         }
+
+        $topic->save();
         return redirect('/topics');
     }
 

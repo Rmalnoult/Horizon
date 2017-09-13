@@ -6,13 +6,35 @@
 	.mobileOnly {
 		display: block !important;
 	}
+
+	.navbar-brand {
+		text-align: center;
+		margin: 0 auto;
+		padding: 20px 20px 40px;
+		display: block;
+		float: none;
+	}
+
+	.navbar-toggle {
+		position: absolute;
+		float: none;
+		right: 0;
+		top: 5px;
+	}
 }
 /* Smartphones */
 @media screen and (max-width: 640px) {
 	body {
-		font-size: 0.6em;
+		font-size: 1.3em;
+	}
+	p {
+		font-size: 1.5em;
 	}
 	footer {
 		text-align: center;
+	}
+	.container {
+		padding-left: 0;
+		padding-right: 0;
 	}
 }

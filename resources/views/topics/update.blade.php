@@ -26,6 +26,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
+                            <label for="image" class="col-md-4 control-label">Image URL</label>
+
+                            <div class="col-md-6">
+                                <input id="image" type="text" class="form-control" name="image" value="{{ $topic->image }}" required autofocus>
+
+                                @if ($errors->has('image'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('image') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('edito') ? ' has-error' : '' }}">
                             <label for="edito" class="col-md-4 control-label">Édito</label>
 
