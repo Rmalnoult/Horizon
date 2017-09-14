@@ -19,6 +19,9 @@
 .capitalize {
 	text-transform: capitalize;
 }
+.justify {
+	text-align: justify;
+}
 .cover {
 	background-size: cover;
 	background-position: center;
@@ -30,20 +33,42 @@
 .cursor-pointer {
 	cursor: pointer;
 }
+.uppercase {
+	text-transform: uppercase;
+}
 body {
 	background-color: #fff;
+}
+#app {
+	position: relative;
 }
 h2 {
 	margin-bottom: 40px;
 }
+li {
+	list-style-type: none;
+}
 .title-label {
 	background-color: #08015C;
 	color: #fff;
-	width: 200px;
+	width: 400px;
 	text-align: right;
 	font-size: 2em;
 	padding: 15px 20px;
 }
+
+/*Navbar*/
+.navbar {
+	position: fixed;
+	min-height: 60px;
+	top: 0;
+	width: 100%;
+}
+.navbar-placeholder {
+	height: 60px;
+}
+
+/* Topics */
 .topic .panel-heading {
 	height: 200px;
 	position: relative;
@@ -51,30 +76,85 @@ h2 {
 .topic .panel-heading > * {
 	position: relative;
 }
-.topic .mask {
+.topic .mask, .topic .mask-light {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-color: #7f8c8d;
+	/*background-color: #7f8c8d;*/
+	background-color: #000;
 	top: 0;
 	left: 0;
-	opacity: .6;
+}
+.topic .mask {
+	opacity: .4;
+}
+.topic .mask-light {
+	opacity: .2;
 }
 .topic h3 {
 	text-align: center;
 	padding-top: 30px;
 	font-size: 3em;
 }
-.topic span {
+.topic .panel-heading span {
 	padding-top: 30px;
 }
 .topic .cover-image {
 	min-height: 100px;
 }
-.topic .articles .row {
-	border-bottom: 1px solid #ddd;
+
+/*.topic .article {
+	border-top: 1px solid #ddd;
+}*/
+.topic .article {
+	padding-top: 15px;
+	background-color: #fff;
 }
-.topic .btn-sm.pull-right {
+.topic .btn-sm {
 	position: relative;
-	top: -30px;
+	top: 6px;
+}
+
+.topic .article p.category {
+	margin-bottom: 0;
+}
+
+.topic .articles a:hover {
+	text-decoration: none;
+}
+
+.topic .article .category-label {
+	background-color: #ddd;
+	color: #fff;
+	max-width: 150px;
+	padding: 0 20px;
+	font-weight: bold;
+	text-align: right;
+	position: relative;
+	left: -15px;
+
+	--webkit-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+.topic .article:hover .category-label {
+	max-width: 180px;
+}
+
+.topic .article .category-label.category-gauche {
+	/*background-color: #FFD095;*/
+	background-color: #FFBC00;
+}
+.topic .article .category-label.category-droite {
+	background-color: #0C0196;
+}
+.topic .article .category-label.category-international {
+/*	background-color: #047403;
+*/	background-color: #047403;
+}
+.topic .panel-body {
+	padding: 15px 15px 0;
+}
+.topic ul {
+	margin-bottom: 0;
 }

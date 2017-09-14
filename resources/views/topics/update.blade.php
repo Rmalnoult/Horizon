@@ -97,7 +97,7 @@
                         <div class="panel-body">
                             <div v-for="article in articles">
                                 <div>
-                                    <div class="row">
+                                    <div class="">
                                         <div class="form-group">
                                             <label for="source" class="col-md-4 control-label text-right">Source</label>
                                             <div class="col-md-6">
@@ -120,6 +120,12 @@
                                             <label for="image" class="col-md-4 control-label text-right">Image URL</label>
                                             <div class="col-md-6">
                                                 <input id="image" type="text" class="form-control" name="articles[index].image" v-model="article.image">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="type" class="col-md-4 control-label text-right">Type d'article</label>
+                                            <div class="col-md-6">
+                                                <input id="type" placeholder="Gauche / Droite / International" type="text" class="form-control" name="articles[index].type" v-model="article.type">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -156,6 +162,7 @@
                     'url': '',
                     'source': '',
                     'image': '',
+                    'type': '',
                     'excerpt': '',
                 })
             }

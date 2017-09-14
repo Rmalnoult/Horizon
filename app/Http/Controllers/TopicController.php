@@ -97,21 +97,21 @@ class TopicController extends Controller
         $request->articles = json_decode($request->encodedArticles);
         foreach ($request->articles as $a) {
             if (!$a->id) {
-                // dd('new article');
                 $article = Article::create([
                     'topic_id' => $topic->id,
                     'title' => $a->title,
                     'source' => $a->source,
                     'url' => $a->url,
+                    'type' => $a->type,
                     'image' => $a->image,
                     'excerpt' => $a->excerpt,
-                    'type' => 'e',
                 ]);
             } else {
                 $article = Article::find($a->id);
                 $article->title = $a->title;
                 $article->source = $a->source;
                 $article->url = $a->url;
+                $article->type = $a->type;
                 $article->image = $a->image;
                 $article->excerpt = $a->excerpt;
                 $article->save();

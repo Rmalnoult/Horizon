@@ -77,6 +77,7 @@
                 </div>
             </div>
         </nav>
+        <div class="navbar-placeholder"></div>
 
         @yield('content')
     </div>
