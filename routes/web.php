@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
 		// Route::get('/topics/{id}/edit', 'TopicController@edit')->where('id', '[0-9]+');
 		// Route::put('/topics/{id}/udpate', 'TopicController@udpate')->where('id', '[0-9]+');
 		Route::resource('topics', 'TopicController');
+		Route::resource('categories', 'CategoryController');
 	});
 
 	// Route::get('/foo/', 'BarController@index');

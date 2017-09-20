@@ -48,6 +48,7 @@
                         @if(Auth::check() && Auth::user()->hasRole('admin'))
                             <li><a href="/users">Users</a></li>
                             <li><a href="/topics">Topics</a></li>
+                            <li><a href="/categories">Catégories</a></li>
                         @endif
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>

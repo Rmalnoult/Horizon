@@ -15,5 +15,9 @@ class Article extends Model
         'topic_id', 'title', 'url', 'image', 'excerpt', 'content', 'source', 'type'
     ];
 
+    protected $visible = [
+        'topic_id', 'title', 'url', 'image', 'excerpt', 'content', 'source', 'type', 'id'
+    ];
+
     
 }

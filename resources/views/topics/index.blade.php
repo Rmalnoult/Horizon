@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="panel panel-default">
 		<div class="panel-body">
-			<h3 class="panel-title pull-left">topics ({{ $topics->count() }})</h3>
+			<h3 class="panel-title pull-left">Topics ({{ $topics->count() }})</h3>
 			@if(Auth::check() && Auth::user()->hasRole('admin'))
 				<a href="/topics/create" class="btn btn-info pull-right"><span class="fa fa-plus"></span> Ajouter un Sujet</a>
 			@endif
@@ -16,6 +16,7 @@
 				<tr>
 					<th>Statut</th>
 					<th>Titre</th>
+					<th>Catégorie</th>
 					<th>Edito</th>
 					<th>Articles</th>
 					<th>Date de création</th>
@@ -33,6 +34,7 @@
 							@endif
 						</td>
 						<td><a href="/topics/{{ $topic->id }}/edit" title="Edit this topic">{{ $topic->title }}</td>
+						<td>{{ $topic->category ? $topic->category->name : '/' }}</td>
 						<td>{{ str_limit($topic->edito, 50) }}</td>
 						<td>{{ $topic->articles()->count() }}</td>
 						<td>{{ $topic->created_at }}</td>

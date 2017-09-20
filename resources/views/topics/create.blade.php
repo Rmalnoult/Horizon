@@ -24,6 +24,24 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
+                            <label for="category" class="col-md-4 control-label">Catégorie</label>
+
+                            <div class="col-md-6">
+                                <select name="category" id="category">
+                                    @foreach($categories as $category => $id)
+                                        <option value="{{ $id }}">{{ $category }}</option>
+                                    @endforeach
+                                </select>
+
+                                @if ($errors->has('category'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('category') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
                             <label for="image" class="col-md-4 control-label">Image URL</label>
 
