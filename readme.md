@@ -1,15 +1,17 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
+https://horizon-actu.com
+
+Horizon vous propose d'explorer des sujets actuels en sortant de votre zone de confort. De l'exteme gauche à l'extreme droite, en passant par l'international, explorez les points de vue qui vous entourent.
+
+Horizon lets you explore news topics by getting out of your comfort zone. From the extreme left to the extreme right, explore the points of view around you.
+
 ## About this repository
 
-This repository is a boilerplate for Laravel projects. It is initialized with :
+This repository contains the source code of https://horizon-actu.com
 
-- User authentification scaffolding
-- Social authentification
-- User role management
-- User seeds
-- Browsersync for live reloading
-- Bootstrap, Vue, Font Awesome
+The database of topics and articles are not included.
+
 
 ## Installation
 
@@ -17,6 +19,7 @@ First, update .env file with your environement variables such as database creden
 
 ```
 $ composer install
+$ php artisan key:generate
 $ php artisan migrate --seed
 $ php artisan serve
 $ npm install

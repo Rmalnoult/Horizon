@@ -22,7 +22,7 @@ class Topic extends Model
      */
     protected $appends = ['active'];
 
-    protected $visible = ['articles', 'title', 'edito', 'published', 'image', 'category_id', 'active'];
+    protected $visible = ['articles', 'title', 'edito', 'published', 'image', 'category_id', 'active', 'id'];
 
     public function articles()
     {

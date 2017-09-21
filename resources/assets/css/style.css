@@ -41,6 +41,7 @@ body {
 }
 #app {
 	position: relative;
+	overflow: hidden;
 }
 h2 {
 	margin-bottom: 40px;

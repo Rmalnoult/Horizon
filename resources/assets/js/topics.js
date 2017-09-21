@@ -5,7 +5,8 @@ var Home = new Vue({
 			<div v-for="category in categories" >
 				<h2 class="title-label" :style="{ 'background-color': category.color }">{{ category.name }}</h2>
 				<div class="container">
-			        <div class="row " v-for="topic in category.topics">
+					<span></span>
+			        <div class="row" v-for="topic in category.topics">
 			            <div class="col-md-8 col-md-offset-2">
 			                <div :id="'topic'+topic.id" class="topic panel panel-default cursor-pointer" :class="{ 'active': topic.active }" >
 								<div class="panel-heading" v-on:click="toggleTopic(topic);scrollToTopic(topic);" >
