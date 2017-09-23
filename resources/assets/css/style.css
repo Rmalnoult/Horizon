@@ -163,7 +163,7 @@ li {
 .topic .article .category-label {
 	background-color: #ddd;
 	color: #fff;
-	max-width: 150px;
+	max-width: 240px;
 	padding: 0 20px;
 	font-weight: bold;
 	text-align: right;
@@ -175,7 +175,7 @@ li {
 	transition: all .3s;
 }
 .topic .article:hover .category-label {
-	max-width: 180px;
+	max-width: 280px;
 }
 
 .topic .article .category-label.category-gauche {
@@ -194,4 +194,23 @@ li {
 }
 .topic ul {
 	margin-bottom: 0;
+}
+
+
+.modal img {
+	width: 80%;
+	margin: 0 auto 40px;
+	display: block;
+}
+.modal h4 + p {
+	margin-bottom: 0;
+}
+ .modal-body a {
+ 	font-size: 1.3em;
+ }
+.modal-body p {
+	font-size: 1.6em;
+}
+.modal-body p.content {
+	text-align: justify;
 }

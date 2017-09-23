@@ -2,7 +2,7 @@
 
 https://horizon-actu.com
 
-Horizon vous propose d'explorer des sujets actuels en sortant de votre zone de confort. De l'exteme gauche à l'extreme droite, en passant par l'international, explorez les points de vue qui vous entourent.
+Horizon vous propose d'explorer des sujets actuels en sortant de votre zone de confort. De l'extreme gauche à l'extreme droite, en passant par l'international, explorez les points de vue qui vous entourent.
 
 Horizon lets you explore news topics by getting out of your comfort zone. From the extreme left to the extreme right, explore the points of view around you.
 

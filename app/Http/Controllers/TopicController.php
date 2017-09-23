@@ -64,7 +64,8 @@ class TopicController extends Controller
      */
     public function show(Topic $topic)
     {
-        //
+        $articles = $topic->articles;
+        return view('topics.show')->with(['topic' => $topic, 'articles' => $articles->toJSON()]);
     }
 
     /**
