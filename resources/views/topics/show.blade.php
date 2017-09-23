@@ -16,7 +16,43 @@
 		var topic = {!! $topic; !!};
 		var articles = {!! $articles; !!};
 
-		var Home = new Vue({
+		var Modal = {
+			template: `
+				<div class="modal fade" tabindex="-1" role="dialog" id="articleModal">
+
+					<div class="modal-dialog" role="document">
+					<p class="category-label capitalize category-gauche" v-if="article.type.toLowerCase() == 'gauche'"><small>Presse dite de </small>Gauche</p>
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title text-center">@{{ article.title }}</h4>
+								<p class="text-center">@{{ article.source }}</p>
+							</div>
+							<div class="modal-body">
+								<img :src="article.image" class="featured"/>
+								<p class="text-center">...</p>
+								<p class="content" v-html="article.excerpt" ></p>
+								<p class="text-center">...</p>
+								<div class="text-center">
+									<a :href="article.url" class="btn btn-default" target="_blank"><span class="fa fa-plus"></span> Lire l'article en entier</a>
+								</div>
+							</div>
+							<div class="modal-footer text-center">
+								<div class="modal-body">
+									<a :href="article.url" class="btn btn-default pull-right" data-dismiss="modal"><span class="fa fa-times"></span> Fermer</a>
+								</div>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+			`,
+			props: ['article'],
+			mounted: function () {
+				console.log(this.article);
+			}
+		}
+
+		var Topic = new Vue({
 			el: '#topic',
 			template: `
 				<div>
@@ -32,7 +68,7 @@
 								<ul class="list-group">
 									<div class="row">
 										<li class="list-group-item article" v-for="article in topic.articles">
-											<a :href="article.url" target="_blank" class="color-inherit">
+											<a v-on:click="showArticle(article)" class="color-inherit">
 												<div class="row">
 													<div class="col-md-12">
 														<p class="category-label capitalize category-gauche" v-if="article.type.toLowerCase() == 'gauche'"><small>Presse dite de </small>Gauche</p>
@@ -46,7 +82,7 @@
 														<h4>@{{ article.title }}</h4>
 														<div class="row">
 															<div class="col-md-6 col-sm-6 col-xs-6"><h4><small>@{{ article.source }}</small></h4></div>
-															<div class="col-md-6 col-sm-6 col-xs-6 text-right"><a :href="article.url" target="_blank" class="btn btn-sm btn-default">Lire l'article</a></div>
+															<div class="col-md-6 col-sm-6 col-xs-6 text-right"><a v-on:click="showArticle(article)" class="btn btn-sm btn-default">Lire l'article</a></div>
 														</div>
 													</div>
 												</div>
@@ -57,15 +93,26 @@
 							</div>
 		                </div>
 		            </div>
+		            <modal :article="currentArticle" ></modal>		
 
 				</div>
 			`,
 			data: {
 				topic: topic,
 				articles: articles,
+				article: null,
+			},
+			components: {
+				modal: Modal,
 			},
 			computed: {
-
+				currentArticle: function () {
+					if (this.article) {
+						return this.article;
+					} else {
+						return this.articles[0];
+					}
+				}
 			},
 			mounted: function () {
 				topic.active = true;
@@ -73,6 +120,10 @@
 			methods: {
 				toggleTopic: function (topic) {
 					topic.active = topic.active ? false : true;
+				},
+				showArticle: function (article) {
+					this.article = article;
+					$('#articleModal').modal('show');
 				},
 				scrollToTopic: function (topic) {
 					var target = $('#topic'+topic.id);

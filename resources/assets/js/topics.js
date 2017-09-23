@@ -126,7 +126,6 @@ var Home = new Vue({
 				return this.categories[0].topics[0].articles[0];
 			}
 		}
-
 	},
 	mounted: function () {
 		
