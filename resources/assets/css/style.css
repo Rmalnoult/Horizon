@@ -163,7 +163,7 @@ li {
 .topic .article .category-label {
 	background-color: #ddd;
 	color: #fff;
-	max-width: 240px;
+	max-width: 280px;
 	padding: 0 20px;
 	font-weight: bold;
 	text-align: right;
@@ -175,7 +175,7 @@ li {
 	transition: all .3s;
 }
 .topic .article:hover .category-label {
-	max-width: 280px;
+	max-width: 320px;
 }
 
 .topic .article .category-label.category-gauche {
