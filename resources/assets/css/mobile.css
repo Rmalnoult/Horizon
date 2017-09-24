@@ -33,6 +33,12 @@
 	footer {
 		text-align: center;
 	}
+	 .modal-body a {
+	 	font-size: 1.3em;
+	 }
+	.modal-body p {
+		font-size: 1.6em;
+	}
 	.container {
 		padding-left: 0;
 		padding-right: 0;

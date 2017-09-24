@@ -205,12 +205,6 @@ li {
 .modal h4 + p {
 	margin-bottom: 0;
 }
- .modal-body a {
- 	font-size: 1.3em;
- }
-.modal-body p {
-	font-size: 1.6em;
-}
 .modal-body p.content {
 	text-align: justify;
 }
