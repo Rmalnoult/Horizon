@@ -28,6 +28,7 @@ mix.styles([
 .version();
 
 mix.copy('resources/assets/libs', 'public/libs');
+mix.copy('resources/assets/img', 'public/img');
 
 // mix.delete('public/css/all.css');
 

@@ -49,6 +49,9 @@ h2 {
 li {
 	list-style-type: none;
 }
+img.logo {
+	max-width: 100px;
+}
 .title-label {
 	background-color: #08015C;
 	color: #fff;
