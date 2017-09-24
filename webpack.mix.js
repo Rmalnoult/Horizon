@@ -21,10 +21,13 @@ mix.sass('resources/assets/sass/app.scss', 'public/css')
 
 mix.styles([
 	'resources/assets/css/app.css',
+	'resources/assets/libs/addToHomeScreen/style/addtohomescreen.css',
 	'resources/assets/css/style.css',
 	'resources/assets/css/mobile.css',
 ], 'public/css/all.css')
 .version();
+
+mix.copy('resources/assets/libs', 'public/libs');
 
 // mix.delete('public/css/all.css');
 

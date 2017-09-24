@@ -85,6 +85,13 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}"></script>
+
+    <script src="{{ asset('libs/addToHomeScreen/src/addtohomescreen.min.js') }}"></script>
+    <script>
+        setTimeout(function () {
+            addToHomescreen();
+        }, 45000);
+    </script>
     @yield('scripts')
 </body>
 </html>

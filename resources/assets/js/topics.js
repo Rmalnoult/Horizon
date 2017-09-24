@@ -44,7 +44,7 @@ var Home = new Vue({
 				<div class="container">
 					<span></span>
 			        <div class="row" v-for="topic in category.topics">
-			            <div class="col-md-8 col-md-offset-2">
+			            <div class="col-md-8 col-md-offset-2" v-if="topic.published">
 			                <div :id="'topic'+topic.id" class="topic panel panel-default cursor-pointer" :class="{ 'active': topic.active }" >
 								<div class="panel-heading" v-on:click="toggleTopic(topic);scrollToTopic(topic);" >
 									<div class="bcg cover" :style="{ 'background-image': 'url('+topic.image+')' }"></div>
