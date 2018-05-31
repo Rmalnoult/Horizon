@@ -128,7 +128,7 @@ var Home = new Vue({
 		}
 	},
 	mounted: function () {
-		
+
 	},
 	methods: {
 		toggleTopic: function (topic) {

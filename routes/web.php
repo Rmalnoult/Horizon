@@ -17,7 +17,8 @@ Auth::routes();
 
 // Route::get('/topics', 'TopicController@index');
 
-Route::resource('topics', 'TopicController')->only('show');
+Route::resource('topics', 'TopicController');
+
 Route::group(['middleware' => 'auth'], function () {
 
 
@@ -34,7 +35,6 @@ Route::group(['middleware' => 'auth'], function () {
 		// Route::post('/topics/store', 'TopicController@store');
 		// Route::get('/topics/{id}/edit', 'TopicController@edit')->where('id', '[0-9]+');
 		// Route::put('/topics/{id}/udpate', 'TopicController@udpate')->where('id', '[0-9]+');
-		Route::resource('topics', 'TopicController')->except('show');
 		Route::resource('categories', 'CategoryController');
 	});
 

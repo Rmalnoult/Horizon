@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Topic;
 use App\Article;
 use App\Category;
@@ -16,6 +17,9 @@ class TopicController extends Controller
      */
     public function index()
     {
+        if (!Auth::user()->hasRole('admin')) {
+            return abort(403);
+        }
         return view('topics.index')->with('topics', Topic::paginate(25));
     }
 
@@ -26,6 +30,9 @@ class TopicController extends Controller
      */
     public function create()
     {
+        if (!Auth::user()->hasRole('admin')) {
+            return abort(403);
+        }
         $categories = Category::pluck('id', 'name');
         return view('topics.create')->with('categories', $categories);
     }
@@ -38,6 +45,9 @@ class TopicController extends Controller
      */
     public function store(Request $request)
     {
+        if (!Auth::user()->hasRole('admin')) {
+            return abort(403);
+        }
         $this->validate($request, [
             'title' => 'required|unique:topics,title',
             'image' => 'string',
@@ -62,8 +72,9 @@ class TopicController extends Controller
      * @param  \App\Topic  $topic
      * @return \Illuminate\Http\Response
      */
-    public function show(Topic $topic)
+    public function show($id)
     {
+        $topic = Topic::findOrFail($id);
         $articles = $topic->articles;
         return view('topics.show')->with(['topic' => $topic, 'articles' => $articles->toJSON()]);
     }
@@ -76,6 +87,9 @@ class TopicController extends Controller
      */
     public function edit(Topic $topic)
     {
+        if (!Auth::user()->hasRole('admin')) {
+            return abort(403);
+        }
         $categories = Category::pluck('id', 'name');
         return view('topics.update')->with(['topic' => $topic, 'categories' => $categories]);
     }
@@ -89,6 +103,9 @@ class TopicController extends Controller
      */
     public function update(Request $request, Topic $topic)
     {
+        if (!Auth::user()->hasRole('admin')) {
+            return abort(403);
+        }
         $this->validate($request, [
             'title' => 'string',
             'edito' => 'string',
